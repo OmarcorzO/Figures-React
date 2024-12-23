@@ -24,7 +24,6 @@ function App() {
     <>
       {/* <IdeationScrollAnimation /> */}
       <div style={{ height: "100vh", background: "#f4f4f4" }}>
-        Queso
         <MotionNew />
       </div>
       {/* <ScrollTextEffect /> */}
