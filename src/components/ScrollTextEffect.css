@@ -1,0 +1,67 @@
+/* Aseguramos que las secciones ocupen toda la altura de la pantalla */
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    padding: 20px;
+    overflow: auto;
+  }
+  
+  /* Estilo general para cada sección */
+  .section {
+    width: 100%;
+    padding: 50px;
+    margin-bottom: 30px;
+    opacity: 0; /* Inicialmente oculto */
+    transform: translateY(50px); /* Desplazamiento hacia abajo */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Transición suave */
+  }
+  
+  /* Cuando la clase 'visible' se agrega, el elemento se vuelve visible */
+  .section.visible {
+    opacity: 1;
+    transform: translateY(0); /* Regresa a su posición original */
+  }
+  
+  /* Opcional: estilos adicionales para los títulos y los párrafos */
+  .section h2,
+  .section p {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+  }
+  
+  /* Para que las secciones tengan algo de estilo visual */
+  .section h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .section p {
+    font-size: 1.2rem;
+    color: #666;
+    text-align: justify;
+  }
+  
+  /* Estilos para el scroll lateral izquierdo */
+  .content::-webkit-scrollbar {
+    width: 10px; /* Ancho del scrollbar */
+  }
+  
+  .content::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Fondo de la pista */
+  }
+  
+  .content::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color de la parte móvil del scrollbar */
+    border-radius: 10px;
+  }
+  
+  .content::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Hover del scrollbar */
+  }
+  
