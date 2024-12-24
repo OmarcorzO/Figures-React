@@ -1,4 +1,4 @@
-import "./styles.css";
+import "./StylishVelocity.css";
 import { useRef } from "react";
 import {
   motion,
@@ -13,10 +13,11 @@ import { wrap } from "@motionone/utils";
 
 interface ParallaxProps {
     children: string;
+    fontSize?: string;
     baseVelocity: number;
   }
   
-  function ParallaxText({ children, baseVelocity = 100 }: ParallaxProps) {
+  export function ParallaxText({ children, baseVelocity = 100, fontSize = '20px' }: ParallaxProps) {
     const baseX = useMotionValue(0);
     const { scrollY } = useScroll();
     const scrollVelocity = useVelocity(scrollY);
@@ -43,13 +44,14 @@ interface ParallaxProps {
        * This is what changes the direction of the scroll once we
        * switch scrolling directions.
        */
-      if (velocityFactor.get() < 0) {
-        directionFactor.current = -1;
-      } else if (velocityFactor.get() > 0) {
-        directionFactor.current = 1;
-      }
+      // if (velocityFactor.get() < 0) {
+      //   directionFactor.current = -1;
+      // } else if (velocityFactor.get() > 0) {
+      //   directionFactor.current = 1;
+      // }
   
-      moveBy += directionFactor.current * moveBy * velocityFactor.get();
+      
+      // moveBy += directionFactor.current * moveBy * velocityFactor.get();
   
       baseX.set(baseX.get() + moveBy);
     });
@@ -63,7 +65,7 @@ interface ParallaxProps {
      */
     return (
       <div className="parallax">
-        <motion.div className="scroller" style={{ x }}>
+        <motion.div className="scroller" style={{ x, fontSize }}>
           <span>{children} </span>
           <span>{children} </span>
           <span>{children} </span>

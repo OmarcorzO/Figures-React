@@ -1,3 +1,8 @@
+
+* {
+  scroll-behavior: auto !important;
+}
+
 html {
   touch-action: manipulation;
 }
@@ -48,7 +53,6 @@ body {
   font-family: sofia-pro, sans-serif;
   font-weight: 400;
   font-style: normal;
-  -webkit-font-smoothing: antialiased;
 }
 
 h1,

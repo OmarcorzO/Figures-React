@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef, Ref } from "react";
 import { motion, useSpring, useTransform, useScroll } from "framer-motion";
-import "./CssGlobalito.css";
+import "./IdeationScroll.css";
 
 const PageWithScrollControl = () => {
   const { scrollYProgress } = useScroll();
@@ -183,7 +183,7 @@ const PageWithScrollControl = () => {
                 d={path_2}
                 stroke="#3C70BA"
                 fill="transparent"
-                strokeWidth="5"
+                strokeWidth="2"
                 style={{
                   pathLength,
                 }}
