@@ -16,7 +16,7 @@ const PageWithScrollControl = () => {
   const rawPathLength = useTransform(scrollYProgress, [0.22, 0.35], [0, 1]);
   const pathLength = useSpring(rawPathLength, { stiffness: 50, damping: 20 });
 
-  const rawPathLengthTwo = useTransform(scrollYProgress, [0.27, 2], [0, 2.6]);
+  const rawPathLengthTwo = useTransform(scrollYProgress, [0.27, 3], [0, 30]);
   const pathLengthTwo = useSpring(rawPathLengthTwo, {
     stiffness: 20,
     damping: 10,
@@ -74,7 +74,6 @@ const PageWithScrollControl = () => {
   useEffect(() => {
 
     if (pathLength.get() === 2) {
-      console.log('finish him')
       setTimeout(() => setHasFinishedAnimation(true), 500);
     }
   }, [pathLength.get()]);
@@ -100,7 +99,7 @@ const PageWithScrollControl = () => {
         ref={ideationRef}
         style={{
           height: "100vh",
-          background: "white", // Fondo del bloque de Ideation
+          background: "black", // Fondo del bloque de Ideation
           display: "flex",
           position: "sticky",
           top: 0,
@@ -210,11 +209,12 @@ const PageWithScrollControl = () => {
                 }}
               />
 
-              {startSecondPath && (
+              {/* {startSecondPath && ( */}
                 <>
                   {/* Línea curva que sale del centro */}
                   <motion.path
-                    d="M340 420 Q500 100 900 100 50" // Curva hacia arriba
+                    // d="M340 420 Q450 50 1500 30 50" // Curva hacia arriba
+                    d="M340 420C450-1000 2911-1891 4757-717"
                     stroke="#E95D0F"
                     strokeWidth="4"
                     fill="transparent"
@@ -249,7 +249,7 @@ const PageWithScrollControl = () => {
                     />
                   ))}
                 </>
-              )}
+              {/* )} */}
             </motion.svg>
           </div>
         )}

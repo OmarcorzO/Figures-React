@@ -5,6 +5,7 @@ import ScrollTextEffect from "./components/Motion/ScrollTextEffect/ScrollTextEff
 import MotionNew from "./components/Motion/ScrollingDynamic/MotionNew";
 import ScrollVelocity from "./components/Motion/Velocity/ScrollVelocity";
 import DynamicFooter from "./components/Motion/Footer/DynamicFooter";
+import GlobeParticles from "./components/Motion/World/GlobeParticles";
 
 function App() {
   useEffect(() => {
@@ -27,12 +28,16 @@ function App() {
       <div style={{ height: "100vh", background: "f4f4f4" }}>
         <p>Contenido adicional para probar el scroll...</p>
       </div>
-      {/* <IdeationScrollAnimation /> */}
+      <IdeationScrollAnimation />
       <div style={{ height: "100vh", background: "black" }}>
-        <MotionNew />
+        {/* <MotionNew /> */}
       </div>
       {/* <ScrollVelocity /> */}
       {/* <ScrollTextEffect /> */}
+      
+      <div style={{ height: "100vh", overflow: "hidden", background: "#000" }}>
+        <GlobeParticles />
+      </div>
       <DynamicFooter />
 
       <div style={{ height: "100vh", background: "#f4f4f4" }}>

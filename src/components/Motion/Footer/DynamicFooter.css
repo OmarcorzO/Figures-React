@@ -1,5 +1,7 @@
 body {
-  --normi: #ffa600;
+  --colorOrange: #ffa600;
+  --colorBlue2: #3c70ba;
+  --colorGray: #8a8a8e;
   margin: 0;
   font-family: Arial, sans-serif;
   background: white;
@@ -49,8 +51,36 @@ body {
 }
 
 .colorG {
-  color: var(--normi);
+  color: var(--colorOrange);
   /* background: -webkit-linear-gradient(yellow, red);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; */
+}
+
+.h3-box {  
+  justify-self: left;
+}
+
+.p-box {  
+  justify-self: normal;
+  text-align: left;
+}
+
+.one {
+  font-size: xx-large;
+  .shuffle-text {
+    color: #fe0222;
+  }
+}
+.two {
+  font-size: xx-large;
+  .shuffle-text {
+    color: #02e1fe;
+  }
+}
+.three {
+  font-size: xx-large;
+  .shuffle-text {
+    color: #0afe02;
+  }
 }
