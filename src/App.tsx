@@ -29,9 +29,9 @@ function App() {
         <p>Contenido adicional para probar el scroll...</p>
       </div>
       <IdeationScrollAnimation />
-      <div style={{ height: "100vh", background: "black" }}>
-        {/* <MotionNew /> */}
-      </div>
+      {/* <div style={{ height: "100vh", background: "f4f4f4" }}>
+        <MotionNew />
+      </div> */}
       {/* <ScrollVelocity /> */}
       {/* <ScrollTextEffect /> */}
       
