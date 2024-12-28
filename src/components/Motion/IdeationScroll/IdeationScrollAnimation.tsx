@@ -16,7 +16,7 @@ const PageWithScrollControl = () => {
   const rawPathLength = useTransform(scrollYProgress, [0.22, 0.35], [0, 1]);
   const pathLength = useSpring(rawPathLength, { stiffness: 50, damping: 20 });
 
-  const rawPathLengthTwo = useTransform(scrollYProgress, [0.27, 3], [0, 30]);
+  const rawPathLengthTwo = useTransform(scrollYProgress, [0.27, 3], [0, 10]);
   const pathLengthTwo = useSpring(rawPathLengthTwo, {
     stiffness: 20,
     damping: 10,
@@ -34,7 +34,7 @@ const PageWithScrollControl = () => {
 
   // const line = "M340 420C833-414 2075-276 2299 415";
   // const line = "M340 420A1 1 0 013209.384 2950"
-  const line = "M340 420C823.419-72.95 1339.949-287.003 1828.558-280.023s688.706 218.71 756.181 439.748Q2626.619 369.128 2519.59 629.72 2352.067 915.905 1768.064 885.658 1232.921 813.53 1251.535 464.523"
+  const line = "M340 420A1 1 0 011982.135 301.18 1 1 0 011082.073 209.08"
 
   useEffect(() => {
     const handleScroll = () => {
