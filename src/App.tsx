@@ -25,9 +25,9 @@ function App() {
 
   return (
     <>
-      <div style={{ height: "100vh", background: "f4f4f4" }}>
+      {/* <div style={{ height: "100vh", background: "f4f4f4" }}>
         <p>Contenido adicional para probar el scroll...</p>
-      </div>
+      </div> */}
       <IdeationScrollAnimation />
       {/* <div style={{ height: "100vh", background: "f4f4f4" }}>
         <MotionNew />
@@ -40,9 +40,9 @@ function App() {
       </div> */}
       {/* <DynamicFooter /> */}
 
-      <div style={{ height: "100vh", background: "#f4f4f4" }}>
+      {/* <div style={{ height: "100vh", background: "#f4f4f4" }}>
         <p color="black">Contenido adicional para probar el scroll...</p>
-      </div>
+      </div> */}
     </>
   );
 }
