@@ -35,10 +35,10 @@ function App() {
       {/* <ScrollVelocity /> */}
       {/* <ScrollTextEffect /> */}
       
-      <div style={{ height: "100vh", overflow: "hidden", background: "#000" }}>
+      {/* <div style={{ height: "100vh", overflow: "hidden", background: "#000" }}>
         <GlobeParticles />
-      </div>
-      <DynamicFooter />
+      </div> */}
+      {/* <DynamicFooter /> */}
 
       <div style={{ height: "100vh", background: "#f4f4f4" }}>
         <p color="black">Contenido adicional para probar el scroll...</p>
