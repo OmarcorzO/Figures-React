@@ -10,44 +10,28 @@ body {
   overflow-y: auto;
 }
 
-.animated-block {
+.animatedBlock {
   text-align: center;
   position: relative;
   padding: 2rem;
   margin: 200;
   background: #f9f5ef;
   border-radius: 20px;
-  box-shadow: 0 4px 10px #ffa60045
+  box-shadow: 0 4px 10px #ffa60045;
 }
 
-.animated-block h1 {
+.animatedBlock h1 {
   font-size: 2.5rem;
   font-weight: bold;
   margin: 0;
   color: #0a3d96;
 }
 
-.animated-block p {
-  margin-top: 1rem;
+.animatedBlock p {
+  margin-top: 1rem !important;
   font-size: 1.2rem;
   opacity: 0.8;
   color: #0a3d96;
-}
-
-.contact-button {
-  margin-top: 1.5rem;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  color: white;
-  background-color: #6a0dad;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.contact-button:hover {
-  background-color: #5a0ca0;
 }
 
 .colorG {
@@ -57,30 +41,24 @@ body {
   -webkit-text-fill-color: transparent; */
 }
 
-.h3-box {  
+.h3-box {
   justify-self: left;
 }
 
-.p-box {  
+.p-box {
   justify-self: normal;
   text-align: left;
 }
 
 .one {
   font-size: xx-large;
-  .shuffle-text {
-    color: #fe0222;
-  }
+  color: #fe0222;
 }
 .two {
   font-size: xx-large;
-  .shuffle-text {
-    color: #02e1fe;
-  }
+  color: #02e1fe;
 }
 .three {
   font-size: xx-large;
-  .shuffle-text {
-    color: #0afe02;
-  }
+  color: #0afe02;
 }

@@ -40,100 +40,93 @@ const PageWithScrollControl = () => {
   }, [animationComplete]);
 
   return (
-    <div>
-      {/* Bloque de inicio */}
-      <div className="intro-section">
-        <h1>Inicio</h1>
-      </div>
+    <div ref={ideationRef} style={{ height: "100vh", overflowY: "scroll" }}>
+      <motion.svg width="1800" height="900" viewBox="0 -60 3000 1000">
+        {/* Trazo principal animado */}
+        <motion.path
+          d={path}
+          stroke="#3C70BA"
+          fill="transparent"
+          strokeWidth="2"
+          style={{ pathLength: springPathLength }}
+          onUpdate={(latest) => {
+            if (Number(latest.pathLength) >= 1) {
+              setAnimationComplete(true);
+            }
+          }}
+        />
+        <motion.path
+          d={path}
+          stroke="transparent"
+          fill="#3C70BA"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{
+            opacity: springPathLength.get() >= 1 ? 1 : 0,
+            scale: springPathLength.get() >= 1 ? 1 : 0.9,
+          }}
+          transition={{
+            opacity: { duration: 1.3, ease: "easeOut" },
+            scale: { duration: 1.3, ease: "easeOut" },
+          }}
+        />
 
-      {/* Bloque de ideación */}
-      <div
-        ref={ideationRef}
-        style={{
-          height: "100vh",
-          background: "white",
-          display: "flex",
-          position: "sticky",
-          top: 0,
-          width: "100%",
-        }}
-      >
-        <motion.svg width="1800" height="900" viewBox="0 -60 3000 1000">
-          {/* Trazo principal animado */}
-          <motion.path
-            d={path}
-            stroke="#3C70BA"
-            fill="transparent"
-            strokeWidth="2"
-            style={{ pathLength: springPathLength }}
-            onUpdate={(latest) => {
-              if (Number(latest.pathLength) >= 1) {
-                setAnimationComplete(true);
-              }
-            }}
-          />
-          <motion.path
-            d={path}
-            stroke="transparent"
-            fill="#3C70BA"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{
-              opacity: springPathLength.get() >= 1 ? 1 : 0,
-              scale: springPathLength.get() >= 1 ? 1 : 0.9,
-            }}
-            transition={{
-              opacity: { duration: 1.3, ease: "easeOut" },
-              scale: { duration: 1.3, ease: "easeOut" },
-            }}
-          />
+        {/* Punto animado */}
+        <motion.path
+          d={path_1}
+          stroke="#E95D0F"
+          fill="transparent"
+          strokeWidth="2"
+          style={{ pathLength: springPathLength }}
+        />
+        <motion.path
+          d={path_1}
+          stroke="transparent"
+          fill="#E95D0F"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{
+            opacity: springPathLength.get() >= 1 ? 1 : 0,
+            scale: springPathLength.get() >= 1 ? 1 : 0.9,
+          }}
+          transition={{
+            opacity: { duration: 1.3, ease: "easeOut" },
+            scale: { duration: 1.3, ease: "easeOut" },
+          }}
+        />
 
-          {/* Punto animado */}
-          <motion.path
-            d={path_1}
-            stroke="#E95D0F"
-            fill="transparent"
-            strokeWidth="2"
-            style={{ pathLength: springPathLength }}
-          />
-          <motion.path
-            d={path_1}
-            stroke="transparent"
-            fill="#E95D0F"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{
-              opacity: springPathLength.get() >= 1 ? 1 : 0,
-              scale: springPathLength.get() >= 1 ? 1 : 0.9,
-            }}
-            transition={{
-              opacity: { duration: 1.3, ease: "easeOut" },
-              scale: { duration: 1.3, ease: "easeOut" },
-            }}
-          />
+        {/* Completar la imagen */}
+        <motion.path
+          d={path_2}
+          stroke="#3C70BA"
+          fill="transparent"
+          strokeWidth="2"
+          style={{ pathLength: springPathLength }}
+        />
+        <motion.path
+          d={path_2}
+          stroke="transparent"
+          fill="#3C70BA"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{
+            opacity: springPathLength.get() >= 1 ? 1 : 0,
+            scale: springPathLength.get() >= 1 ? 1 : 0.9,
+          }}
+          transition={{
+            opacity: { duration: 1.3, ease: "easeOut" },
+            scale: { duration: 1.3, ease: "easeOut" },
+          }}
+        />
 
-          {/* Completar la imagen */}
-          <motion.path
-            d={path_2}
-            stroke="#3C70BA"
-            fill="transparent"
-            strokeWidth="2"
-            style={{ pathLength: springPathLength }}
-          />
-          <motion.path
-            d={path_2}
-            stroke="transparent"
-            fill="#3C70BA"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{
-              opacity: springPathLength.get() >= 1 ? 1 : 0,
-              scale: springPathLength.get() >= 1 ? 1 : 0.9,
-            }}
-            transition={{
-              opacity: { duration: 1.3, ease: "easeOut" },
-              scale: { duration: 1.3, ease: "easeOut" },
-            }}
-          />
+        {/* Segundo trazo con esferas */}
+        <motion.path
+          d={line}
+          stroke="#E95D0F"
+          strokeWidth="4"
+          fill="transparent"
+          style={{ pathLength: springPathLength }}
+        />
 
-          {/* Segundo trazo con esferas */}
+        {/* ESFERAS NO BORRAR */}
+        <>
           <motion.path
             d={line}
             stroke="#E95D0F"
@@ -142,205 +135,181 @@ const PageWithScrollControl = () => {
             style={{ pathLength: springPathLength }}
           />
 
-          {/* ESFERAS NO BORRAR */}
-          <>
-            <motion.path
-              d={line}
-              stroke="#E95D0F"
-              strokeWidth="4"
-              fill="transparent"
-              style={{ pathLength: springPathLength }}
-            />
+          <motion.circle
+            key="1"
+            cx={950}
+            cy={-50}
+            r="130"
+            fill="#E95D0F"
+            style={{ pathLength: springPathLength }}
+            initial={{ opacity: 0, scale: 2 }}
+            animate={{
+              opacity: springPathLength.get() >= 1 ? 1 : 0,
+              scale: springPathLength.get() >= 1 ? 1 : 0,
+            }}
+            transition={{
+              delay: springPathLength.get() >= 1 ? 0.3 : 0,
+              duration: springPathLength.get() >= 1 ? 1 : 0,
+              ease: "easeInOut",
+            }}
+          />
 
-            <motion.circle
-              key="1"
-              cx={950}
-              cy={-50}
-              r="130"
-              fill="#E95D0F"
-              style={{ pathLength: springPathLength }}
-              initial={{ opacity: 0, scale: 2 }}
-              animate={{
-                opacity: springPathLength.get() >= 1 ? 1 : 0,
-                scale: springPathLength.get() >= 1 ? 1 : 0,
-              }}
-              transition={{
-                delay: springPathLength.get() >= 1 ? 0.3 : 0,
-                duration: springPathLength.get() >= 1 ? 1 : 0,
-                ease: "easeInOut",
-              }}
-            />
+          <motion.text
+            x="950"
+            y="-50"
+            textAnchor="middle"
+            dominantBaseline="middle"
+            fill="white"
+            fontSize="30px"
+            fontWeight="bold"
+            initial={{ opacity: 0, scale: 2 }}
+            animate={{
+              opacity: springPathLength.get() >= 1 ? 1 : 0,
+              scale: springPathLength.get() >= 1 ? 1 : 0,
+            }}
+            transition={{
+              delay: springPathLength.get() >= 1 ? 0.3 : 0,
+              duration: springPathLength.get() >= 1 ? 1 : 0,
+              ease: "easeInOut",
+            }}
+          >
+            <tspan x="950" dy="-15">
+              Micro
+            </tspan>
+            <tspan x="950" dy="30">
+              certificaciones
+            </tspan>
+          </motion.text>
 
-            <motion.text
-              x="950"
-              y="-50"
-              textAnchor="middle"
-              dominantBaseline="middle"
-              fill="white"
-              fontSize="30px"
-              fontWeight="bold"
-              initial={{ opacity: 0, scale: 2 }}
-              animate={{
-                opacity: springPathLength.get() >= 1 ? 1 : 0,
-                scale: springPathLength.get() >= 1 ? 1 : 0,
-              }}
-              transition={{
-                delay: springPathLength.get() >= 1 ? 0.3 : 0,
-                duration: springPathLength.get() >= 1 ? 1 : 0,
-                ease: "easeInOut",
-              }}
-            >
-              <tspan x="950" dy="-15">
-                Micro
-              </tspan>
-              <tspan x="950" dy="30">
-                certificaciones
-              </tspan>
-            </motion.text>
+          <motion.circle
+            key="1"
+            cx={1600}
+            cy={-170}
+            r="130"
+            fill="#E95D0F"
+            style={{ pathLength: springPathLength }}
+            initial={{ opacity: 0, scale: 2 }}
+            animate={{
+              opacity: springPathLength.get() >= 1 ? 1 : 0,
+              scale: springPathLength.get() >= 1 ? 1 : 0,
+            }}
+            transition={{
+              delay: springPathLength.get() >= 1 ? 0.8 : 0,
+              duration: springPathLength.get() >= 1 ? 1 : 0,
+              ease: "easeInOut",
+            }}
+          />
 
-            <motion.circle
-              key="1"
-              cx={1600}
-              cy={-170}
-              r="130"
-              fill="#E95D0F"
-              style={{ pathLength: springPathLength }}
-              initial={{ opacity: 0, scale: 2 }}
-              animate={{
-                opacity: springPathLength.get() >= 1 ? 1 : 0,
-                scale: springPathLength.get() >= 1 ? 1 : 0,
-              }}
-              transition={{
-                delay: springPathLength.get() >= 1 ? 0.8 : 0,
-                duration: springPathLength.get() >= 1 ? 1 : 0,
-                ease: "easeInOut",
-              }}
-            />
+          <motion.text
+            x="1600"
+            y="-170"
+            textAnchor="middle"
+            dominantBaseline="middle"
+            fill="white"
+            fontSize="30px"
+            fontWeight="bold"
+            initial={{ opacity: 0, scale: 2 }}
+            animate={{
+              opacity: springPathLength.get() >= 1 ? 1 : 0,
+              scale: springPathLength.get() >= 1 ? 1 : 0,
+            }}
+            transition={{
+              delay: springPathLength.get() >= 1 ? 0.8 : 0,
+              duration: springPathLength.get() >= 1 ? 1 : 0,
+              ease: "easeInOut",
+            }}
+          >
+            Certificaciones
+          </motion.text>
 
-            <motion.text
-              x="1600"
-              y="-170"
-              textAnchor="middle"
-              dominantBaseline="middle"
-              fill="white"
-              fontSize="30px"
-              fontWeight="bold"
-              initial={{ opacity: 0, scale: 2 }}
-              animate={{
-                opacity: springPathLength.get() >= 1 ? 1 : 0,
-                scale: springPathLength.get() >= 1 ? 1 : 0,
-              }}
-              transition={{
-                delay: springPathLength.get() >= 1 ? 0.8 : 0,
-                duration: springPathLength.get() >= 1 ? 1 : 0,
-                ease: "easeInOut",
-              }}
-            >
-              Certificaciones
-            </motion.text>
+          <motion.circle
+            key="1"
+            cx={2250}
+            cy={-80}
+            r="130"
+            fill="#E95D0F"
+            style={{ pathLength: springPathLength }}
+            initial={{ opacity: 0, scale: 2 }}
+            animate={{
+              opacity: springPathLength.get() >= 1 ? 1 : 0,
+              scale: springPathLength.get() >= 1 ? 1 : 0,
+            }}
+            transition={{
+              delay: springPathLength.get() >= 1 ? 1.3 : 0,
+              duration: springPathLength.get() >= 1 ? 1 : 0,
+              ease: "easeInOut",
+            }}
+          />
 
-            <motion.circle
-              key="1"
-              cx={2250}
-              cy={-80}
-              r="130"
-              fill="#E95D0F"
-              style={{ pathLength: springPathLength }}
-              initial={{ opacity: 0, scale: 2 }}
-              animate={{
-                opacity: springPathLength.get() >= 1 ? 1 : 0,
-                scale: springPathLength.get() >= 1 ? 1 : 0,
-              }}
-              transition={{
-                delay: springPathLength.get() >= 1 ? 1.3 : 0,
-                duration: springPathLength.get() >= 1 ? 1 : 0,
-                ease: "easeInOut",
-              }}
-            />
+          <motion.text
+            x="2250"
+            y="-80"
+            textAnchor="middle"
+            dominantBaseline="middle"
+            fill="white"
+            fontSize="30px"
+            fontWeight="bold"
+            initial={{ opacity: 0, scale: 2 }}
+            animate={{
+              opacity: springPathLength.get() >= 1 ? 1 : 0,
+              scale: springPathLength.get() >= 1 ? 1 : 0,
+            }}
+            transition={{
+              delay: springPathLength.get() >= 1 ? 1.3 : 0,
+              duration: springPathLength.get() >= 1 ? 1 : 0,
+              ease: "easeInOut",
+            }}
+          >
+            Diplomados
+          </motion.text>
 
-            <motion.text
-              x="2250"
-              y="-80"
-              textAnchor="middle"
-              dominantBaseline="middle"
-              fill="white"
-              fontSize="30px"
-              fontWeight="bold"
-              initial={{ opacity: 0, scale: 2 }}
-              animate={{
-                opacity: springPathLength.get() >= 1 ? 1 : 0,
-                scale: springPathLength.get() >= 1 ? 1 : 0,
-              }}
-              transition={{
-                delay: springPathLength.get() >= 1 ? 1.3 : 0,
-                duration: springPathLength.get() >= 1 ? 1 : 0,
-                ease: "easeInOut",
-              }}
-            >
-              Diplomados
-            </motion.text>
+          <motion.circle
+            key="1"
+            cx={2800}
+            cy={250}
+            r="130"
+            fill="#E95D0F"
+            style={{ pathLength: springPathLength }}
+            initial={{ opacity: 0, scale: 2 }}
+            animate={{
+              opacity: springPathLength.get() >= 1 ? 1 : 0,
+              scale: springPathLength.get() >= 1 ? 1 : 0,
+            }}
+            transition={{
+              delay: springPathLength.get() >= 1 ? 1.8 : 0,
+              duration: springPathLength.get() >= 1 ? 1 : 0,
+              ease: "easeInOut",
+            }}
+          />
 
-            <motion.circle
-              key="1"
-              cx={2800}
-              cy={250}
-              r="130"
-              fill="#E95D0F"
-              style={{ pathLength: springPathLength }}
-              initial={{ opacity: 0, scale: 2 }}
-              animate={{
-                opacity: springPathLength.get() >= 1 ? 1 : 0,
-                scale: springPathLength.get() >= 1 ? 1 : 0,
-              }}
-              transition={{
-                delay: springPathLength.get() >= 1 ? 1.8 : 0,
-                duration: springPathLength.get() >= 1 ? 1 : 0,
-                ease: "easeInOut",
-              }}
-            />
-
-            <motion.text
-              x="2800"
-              y="250"
-              textAnchor="middle"
-              dominantBaseline="middle"
-              fill="white"
-              fontSize="30px"
-              fontWeight="bold"
-              initial={{ opacity: 0, scale: 2 }}
-              animate={{
-                opacity: springPathLength.get() >= 1 ? 1 : 0,
-                scale: springPathLength.get() >= 1 ? 1 : 0,
-              }}
-              transition={{
-                delay: springPathLength.get() >= 1 ? 1.8 : 0,
-                duration: springPathLength.get() >= 1 ? 1 : 0,
-                ease: "easeInOut",
-              }}
-            >
-              <tspan x="2800" dy="-15">
-                Programas
-              </tspan>
-              <tspan x="2800" dy="30">
-                Académicos
-              </tspan>
-            </motion.text>
-          </>
-        </motion.svg>
-      </div>
-
-      {/* Bloque final */}
-      <div
-        style={{
-          height: "100vh",
-          background: "#dcedc8",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <h1>Final</h1>
-      </div>
+          <motion.text
+            x="2800"
+            y="250"
+            textAnchor="middle"
+            dominantBaseline="middle"
+            fill="white"
+            fontSize="30px"
+            fontWeight="bold"
+            initial={{ opacity: 0, scale: 2 }}
+            animate={{
+              opacity: springPathLength.get() >= 1 ? 1 : 0,
+              scale: springPathLength.get() >= 1 ? 1 : 0,
+            }}
+            transition={{
+              delay: springPathLength.get() >= 1 ? 1.8 : 0,
+              duration: springPathLength.get() >= 1 ? 1 : 0,
+              ease: "easeInOut",
+            }}
+          >
+            <tspan x="2800" dy="-15">
+              Programas
+            </tspan>
+            <tspan x="2800" dy="30">
+              Académicos
+            </tspan>
+          </motion.text>
+        </>
+      </motion.svg>      
     </div>
   );
 };

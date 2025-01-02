@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import "./App.css";
 import IdeationScrollAnimation from "./components/Motion/IdeationScroll/IdeationScrollAnimation";
-import ScrollTextEffect from "./components/Motion/ScrollTextEffect/ScrollTextEffect";
 import MotionNew from "./components/Motion/ScrollingDynamic/MotionNew";
 import ScrollVelocity from "./components/Motion/Velocity/ScrollVelocity";
 import DynamicFooter from "./components/Motion/Footer/DynamicFooter";
 import GlobeParticles from "./components/Motion/World/GlobeParticles";
+import Componentico from "./components/Motion/AnotherComponent/Componentico.jsx";
 
 function App() {
   useEffect(() => {
@@ -25,16 +25,21 @@ function App() {
 
   return (
     <>
-      {/* <div style={{ height: "100vh", background: "f4f4f4" }}>
-        <p>Contenido adicional para probar el scroll...</p>
-      </div> */}
-      <IdeationScrollAnimation />
+      <div className="intro-section">Inicio</div>
+      <div
+        style={{ position: "relative", height: "100vh", overflow: "hidden" }}
+      >
+        <IdeationScrollAnimation />
+      </div>
+      <Componentico />
+
+
+
       {/* <div style={{ height: "100vh", background: "f4f4f4" }}>
         <MotionNew />
       </div> */}
       {/* <ScrollVelocity /> */}
-      {/* <ScrollTextEffect /> */}
-      
+
       {/* <div style={{ height: "100vh", overflow: "hidden", background: "#000" }}>
         <GlobeParticles />
       </div> */}
